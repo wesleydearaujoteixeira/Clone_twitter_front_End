@@ -1,12 +1,9 @@
 import img from '../../../src/public/X.jpg';
 
-type Props = {
-    size: string,
-}
 
-export const Logo = ({size}: Props) => {
+export const Logo = () => {
     return (
-        <img src={img} alt="Logo" className={`w-${size}`} />
+        <img src={img} alt="Logo" className={`w-20`} />
     )
 
 }

@@ -5,6 +5,7 @@ import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Login from './auth/login/Login.tsx';
 import Register from './auth/register/Register.tsx';
+import { Layout } from './components/home/Layout.tsx';
 //import { Layout } from './components/home/Layout';
 
 
@@ -13,8 +14,9 @@ const router = createBrowserRouter([
       path: '/',
       element: <App/>,
       children: [
-        { path: 'login', element: <Login /> },
-        { path:'register', element: <Register /> }
+        { path: '/', element: <Login />, errorElement: <div> Erro na rota </div> },
+        { path:'register', element: <Register /> },
+        { path:'/layout', element: <Layout/>}
       ]
     }
     ,

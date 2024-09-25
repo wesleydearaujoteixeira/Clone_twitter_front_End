@@ -8,9 +8,18 @@ type Props = {
     placeholder?: string,
     showEyes?: boolean,
     onChange?: (newValue: string) => void, 
+    onEnter?: () => void
 }
 
-export const Input = ({type, value, filled, placeholder, onChange}: Props) => {
+export const Input = ({type, value, filled, placeholder, onChange, onEnter}: Props) => {
+
+    const handleKeyUp = (event: React.KeyboardEvent <HTMLInputElement>) => {
+        if(event.code.toLocaleLowerCase() == 'enter' && onEnter) {
+            onEnter();
+        }
+    }
+
+
     return (
         <div className={`has-[:focus]:border-white flex items-center h-14 rounded-3xl border-2 border-gray-700 ${filled && 'bg-gray-400'}`}>
             <input
@@ -19,7 +28,7 @@ export const Input = ({type, value, filled, placeholder, onChange}: Props) => {
                 value={value}
                 placeholder={placeholder}
                 onChange={e => onChange && onChange(e.target.value)}     
-
+                onKeyUp={handleKeyUp}
             
             />
 
