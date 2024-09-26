@@ -20,7 +20,8 @@ const Item_menu = ({label, active, href, iconHome, iconPerfil}: Props) => {
         <Link to={`${href}`} className={`flex items-center gap-4 py-2 ${active ? 'opacity-100' : 'opacity-50'} hover:opacity-100`}>
 
             <div className="text-2xl">
-               {iconHome && <IoHomeSharp />}
+               <Link to="/layout"> {iconHome && <IoHomeSharp />} </Link>
+                
                 {iconPerfil && <FaUserCircle/>}
             </div>
             

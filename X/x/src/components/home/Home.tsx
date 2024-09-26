@@ -1,8 +1,15 @@
+import { HeaderPage } from "../header/HeaderPage"
+import { HomeFeed } from "../homeFeed/homeFeed"
+import { Twitter_post } from "../twitter/Twitter_post"
+import SearchInput from "../ui/SearchInput"
+
 export const Home = () => {
     return (
         <div>
-            <h1>Home</h1>
-            <p>Welcome to the home page!</p>
+            <HeaderPage/>
+            <SearchInput/>
+            <Twitter_post/>
+            <HomeFeed/>
         </div>
     )
 }

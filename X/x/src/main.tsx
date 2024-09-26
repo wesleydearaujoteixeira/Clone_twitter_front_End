@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Login from './auth/login/Login.tsx';
 import Register from './auth/register/Register.tsx';
 import { Layout } from './components/home/Layout.tsx';
+import { Home } from './components/home/Home.tsx';
 //import { Layout } from './components/home/Layout';
 
 
@@ -16,7 +17,8 @@ const router = createBrowserRouter([
       children: [
         { path: '/', element: <Login />, errorElement: <div> Erro na rota </div> },
         { path:'register', element: <Register /> },
-        { path:'/layout', element: <Layout/>}
+        { path:'/layout', element: <Layout/>},
+        { path: '/home',element: <Home/> }
       ]
     }
     ,

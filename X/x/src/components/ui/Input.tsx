@@ -21,9 +21,9 @@ export const Input = ({type, value, filled, placeholder, onChange, onEnter}: Pro
 
 
     return (
-        <div className={`has-[:focus]:border-white flex items-center h-14 rounded-3xl border-2 border-gray-700 ${filled && 'bg-gray-400'}`}>
+        <div className={`has-[:focus]:border-white flex items-center h-14 bg-zinc-600 rounded-3xl border-2 border-gray-500 ${filled && 'bg-gray-400'}`}>
             <input
-                className="flex-1 outline-none text-gray-400 bg-transparent h-full px-4"
+                className="flex-1 outline-none text-gray-400 bg-transparent h-full px-4 "
                 type={type} 
                 value={value}
                 placeholder={placeholder}

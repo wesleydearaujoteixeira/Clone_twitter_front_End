@@ -13,7 +13,7 @@ export const Button = ({label, size,  onClick}: Props) => {
     return (
         <button 
         onClick={onClick}
-        className={`flex justify-center items-center px-2 bg-white text-black font-bold rounded-3xl 
+        className={`flex justify-center items-center px-5 py-4 bg-white text-black font-bold rounded-3xl 
             ${size == 1 && 'h-14 text-lg'}
             ${size == 2 && 'h-10 text-md'} 
             ${size == 3 && 'h-7 text-xs'} `}>
