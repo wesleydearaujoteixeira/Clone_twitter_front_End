@@ -8,7 +8,6 @@ export const HomeFeed = () => {
             <TwitterItem twitter={twitt}/>
             <TwitterItem twitter={twitt}/>
             <TwitterItem twitter={twitt}/>
-
         </main>
     )
 }

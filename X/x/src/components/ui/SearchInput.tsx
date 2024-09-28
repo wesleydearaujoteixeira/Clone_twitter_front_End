@@ -16,7 +16,7 @@ function SearchInput({defaultValue}: PropsType ) {
     const handleSearchEnter = () => {
         
         if(searchInput) {
-            navigation(`/search?q=${encodeURIComponent(searchInput)}`);
+            navigation(`/search?query=${searchInput}`);
             setSetSearchInput("");
         }
 
@@ -32,7 +32,6 @@ function SearchInput({defaultValue}: PropsType ) {
        value={searchInput}
        onChange={t => setSetSearchInput(t)}
        onEnter={handleSearchEnter}
-
     />
 
   )

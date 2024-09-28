@@ -12,15 +12,13 @@ export const Twitter_post = () => {
             </div>
 
             <div className="flex-1 ">
-                <div 
-                contentEditable
-                role="text"
-                data-placeholder="O que esta acontecendo... "
-                className="h-14 outline-none text-lg text-white">
-    
-                     O que esta acontecendo... 
+                <textarea 
+                 rows={30}
+                 cols={35}   
+                placeholder="O que esta acontecendo... "
+                className="h-40 w-50 outline-none text-lg rounded-sm text-white bg-black">
 
-                </div>
+                </textarea>
                 <div className="flex justify-between items-center mt-2">
                     <div className="">
                         <MdCloudUpload size={40}/>

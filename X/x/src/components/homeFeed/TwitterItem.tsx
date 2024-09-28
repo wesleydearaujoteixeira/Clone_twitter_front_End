@@ -2,27 +2,19 @@ import { Link } from "react-router-dom";
 import { twitter } from "../../auth/types/twitter";
 import { FaCommentAlt, FaRetweet, FaHeart } from "react-icons/fa";
 import { useState } from "react";
-import { formatDistanceToNow } from "date-fns";
-import { ptBR } from "date-fns/locale"; // Localização em português do Brasil
+// Localização em português do Brasil
 
 type Props = {
   twitter?: twitter;
+  hideComments?: boolean;
 };
 
-const TwitterItem = ({ twitter }: Props) => {
+const TwitterItem = ({ twitter, hideComments}: Props) => {
   const [faHeart, setFaHeart] = useState(false);
 
   const faHeartLiked = () => {
     setFaHeart(!faHeart);
   };
-
-  // Formatação da data para exibir o tempo decorrido
-  const formattedDate = twitter?.dataPost
-    ? formatDistanceToNow(twitter.dataPost, {
-        addSuffix: true,
-        locale: ptBR, // Define o local como Português do Brasil
-      })
-    : "Data inválida"; // Texto de fallback caso a data não exista ou seja inválida
 
   return (
     <div className="flex gap-2 p-6 border-b-2 border-gray-900">
@@ -42,34 +34,39 @@ const TwitterItem = ({ twitter }: Props) => {
           </div>
 
           <div className="text-xs text-gray-500">
-            {twitter?.user.slug} - {formattedDate}
+            {twitter?.user.slug} 
           </div>
         </div>
 
         <div className="py-4 text-lg">{twitter?.body}</div>
         {twitter?.image && (
-          <div className="w-full">
-            <img src={twitter.image} className="w-full rounded-2xl" alt="" />
+          <div className="w-96">
+            <img src={twitter.image} className=" w-full rounded-2xl lg:w-96" alt="" />
           </div>
         )}
 
         <div className="flex mt-6 text-gray-500">
+          {hideComments && 
+            <> 
           <div className="flex-1">
-            <Link to={`${twitter?.id}`}>
-              <div className="inline-flex items-center gap-2 cursor-pointer">
-                <FaCommentAlt size={20} />
-                <span className="text-lg">{twitter?.commentCount}</span>
-              </div>
-            </Link>
-          </div>
-
-          <div className="flex-1">
-            <div className="inline-flex items-center gap-2 cursor-pointer">
-              <FaRetweet size={20} />
-              <span className="text-lg">{twitter?.retweetCount}</span>
-            </div>
-          </div>
-
+             <Link to={`/${twitter?.id}`}>
+               <div className="inline-flex items-center gap-2 cursor-pointer">
+                 <FaCommentAlt size={20} />
+                 <span className="text-lg">{twitter?.commentCount}</span>
+               </div>
+             </Link>
+           </div>
+ 
+           <div className="flex-1">
+             <div className="inline-flex items-center gap-2 cursor-pointer">
+               <FaRetweet size={20} />
+               <span className="text-lg">{twitter?.retweetCount}</span>
+             </div>
+           </div>
+           </>
+           
+           }
+           
           <div className="flex-1">
             <div className="inline-flex items-center gap-2 cursor-pointer">
               <FaHeart

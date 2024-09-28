@@ -34,7 +34,7 @@ const RecomendationItem = ({user}: Props) => {
 
         <div>
           <div className="flex-1 items-center overflow-hidden">
-            <Link to={`/${user.slug}`}>
+            <Link to={`/edit/`}>
                 <div className="text-sm truncate">{user.name}</div>
             </Link>
           </div>

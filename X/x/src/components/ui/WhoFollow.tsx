@@ -4,7 +4,6 @@ import { RecomendationSkeleton } from "./Button";
 
 function WhoFollow() {
 
-
   return (
 
     <div className="bg-gray-700 rounded-3xl">
